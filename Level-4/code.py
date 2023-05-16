@@ -8,10 +8,9 @@ user_input = "Mary'); DROP TABLE Users;--"
 sql_stmt = "INSERT INTO Users (user) VALUES ('" + user_input + "');"
 con.executescript(sql_stmt)
 
-# Secure through Parameterized Statements
+
 con = sqlite3.connect('users.db')
 user_input = "Mary'); DROP TABLE Users;--"
-# The secure way to query a database is
 con.execute("INSERT INTO Users (user) VALUES (?)", (user_input,))
 
 app = Flask(__name__)
